@@ -1,22 +1,27 @@
-***Program do edycji nazw kolumn w pliku CSV***
+***Edytor nazw kolumn w pliku CSV***
 
-***Zczytuje plik:***
 
-***Sprawdzenie czy plik jest plikiem CSV:***
-- sprawdza rozszerzenie pliku, czy ma ono wartosc ".csv".
-- jeżeli tak kontynuuj działanie programu, w przeciwnym razie wyświetl bład i zakoncz dzialanie programu.
+***Opis:***
+Program "Edytor nazw kolumn w pliku CSV" umożliwia użytkownikowi edycję nazw kolumn w pliku CSV na podstawie danych zawartych w innym pliku tekstowym. Jest to przydatne narzędzie w przypadku potrzeby zmiany nazw kolumn w pliku CSV zgodnie z ustalonymi wzorcami lub zewnętrznymi danymi.
 
-***Otwieramy plik i sprawdzamy czy są w nim kolumny:***
-- odpowiednia biblioteka do wczytania zawartosci plki CSV.
-- sprawdza czy plik nie jest pusty, jeżeli jest wyświetl bład i zakoncz dzialanie programu, w przeciwnym razie przejdz do nastepnego kroku.
 
-***Wczytanie nazw kolumn:***
-- program wczytuje pierwszy wiersz pliku CSV.
-- wyswietla aktualne nazwy kolumn. 
-- umożliwia wprowadzenie zmian w nazwach kolumn lub przejście do kolejnego kroku bez zmian.
-- sprawdzenie poprawnosci wprowadzonej zmiany. 
+***Funkcje:***
+***Zczytywanie pliku:*** 
+Program sprawdza, czy podany plik jest plikiem CSV, jeśli tak, to wczytuje jego zawartość.
 
-***Zapisanie zmienionego pliku CSV:***
-- jeżeli dokonano zmian program zapisuje zmodyfikowany plik CSV do nowego pliku.
+***Wczytywanie nowych nazw kolumn:*** 
+Użytkownik może podać plik tekstowy zawierający nowe nazwy kolumn. Program wczytuje te nazwy i prezentuje je użytkownikowi do potwierdzenia.
 
-***Zakonczenie programu:***
+***Edycja nazw kolumn:*** 
+Użytkownik ma możliwość edycji nazw kolumn na podstawie wczytanych nowych nazw lub przejścia do kolejnego kroku bez zmian.
+
+***Zapisanie zmienionego pliku:*** 
+Po dokonaniu zmian nazw kolumn, program zapisuje zmodyfikowany plik CSV do nowego pliku.
+
+
+***Instrukcja obsługi:***
+Uruchom program.
+Podaj nazwę pliku CSV, który chcesz edytować.
+Podaj nazwę pliku zawierającego nowe nazwy kolumn.
+Wprowadź zmiany w nazwach kolumn lub przejdź do kolejnego kroku bez zmian.
+Zapisz zmodyfikowany plik CSV.
