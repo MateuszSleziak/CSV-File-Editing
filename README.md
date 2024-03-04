@@ -6,6 +6,7 @@ Program "Edytor nazw kolumn w pliku CSV" umożliwia użytkownikowi edycję nazw 
 
 
 ***Funkcje:***
+
 ***Zczytywanie pliku:*** 
 Program sprawdza, czy podany plik jest plikiem CSV, jeśli tak, to wczytuje jego zawartość.
 
