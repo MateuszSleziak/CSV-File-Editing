@@ -1,0 +1,3 @@
+day:dzien
+temp:temperatura1
+condition:stan
