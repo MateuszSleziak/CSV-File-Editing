@@ -1,4 +1,5 @@
 import pandas as pd
+from googletrans import Translator
 
 def get_new_column_names(file_path):
     try:
@@ -18,6 +19,7 @@ def get_new_column_names(file_path):
         return None
 
 def edit_column_names(csv_file, new_names):
+    translator = Translator()
     try:
         data = pd.read_csv(csv_file)
         
@@ -30,7 +32,8 @@ def edit_column_names(csv_file, new_names):
 
         for i, new_name in enumerate(new_names):
             if new_name is not None:
-                data.rename(columns={data.columns[i]: new_name}, inplace=True)
+                translator_name = translator.translate(new_name, src='auto', dest = 'en')
+                data.rename(columns={data.columns[i]: translator_name}, inplace=True)
         
         output_file = input("CSV file name to which you want to save the changes: ")
         data.to_csv(output_file, index=False)
