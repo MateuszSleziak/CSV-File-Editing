@@ -1,3 +1,0 @@
-day: dzien
-temp: temperatura
-condition: stan
