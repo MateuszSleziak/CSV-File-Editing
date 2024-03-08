@@ -39,22 +39,20 @@ def translate_header_by_dictionary(csv_file, new_names):
     except FileNotFoundError:
         print("The specified file does not exist.")
 
-def translate_column_by_google(csv_file, output_file, column_index, source_lang='pl', target_lang='en'):
+def translate_column_by_google(csv_file, output_file, column_index, source_lang='en', target_lang='pl'):
     try:
+        translator = Translator()
         data = pd.read_csv(csv_file)
         
-        if column_index < 0 or column_index >= len(data.columns):
-            print("Invalid column index.")
-            return
+        def translate_value(value):
+            translation = translator.translate(value, src=source_lang, dest=target_lang)
+            return translation.text
         
-        column_name = data.columns[column_index]
-        
-        translator = Translator()
-        data[column_name] = data[column_name].apply(lambda x: translator.translate(x, src=source_lang, dest=target_lang).text)
-        
+        data.iloc[:, column_index] = data.iloc[:, column_index].apply(translate_value)
+
         data.to_csv(output_file, index=False)
-        print(f"Column at index {column_index} has been translated and saved to the CSV file '{output_file}'.")
-    
+        print("Column has been translated and saved to the CSV file.")
+
     except FileNotFoundError:
         print("The specified file does not exist.")
 
