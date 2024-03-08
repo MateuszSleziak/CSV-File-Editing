@@ -18,7 +18,7 @@ def get_new_column_names(file_path):
         print("The specified file does not exist.")
         return None
 
-def translate_header_by_dictionary(csv_file, new_names):
+def change_header_by_dictionary(csv_file, output_file, new_names):
     try:
         data = pd.read_csv(csv_file)
         
@@ -32,12 +32,11 @@ def translate_header_by_dictionary(csv_file, new_names):
         for i, new_name in enumerate(new_names):
             if new_name is not None:
                 data.rename(columns={data.columns[i]: new_name}, inplace=True)
-        
-        output_file = input("CSV file name to which you want to save the changes: ")
+
         data.to_csv(output_file, index=False)
         print("Column names have been updated and saved to the CSV file.")
     except FileNotFoundError:
-        print("The specified file does not exist.")
+        print(f"The specified file ({csv_file}) does not exist.")
 
 def translate_column_by_google(csv_file, output_file, column_index, source_lang='en', target_lang='pl'):
     try:
@@ -58,7 +57,9 @@ def translate_column_by_google(csv_file, output_file, column_index, source_lang=
 
 if __name__ == "__main__":
     csv_file = input("Please provide the name of the CSV file: ")
+    new_names_file = "dictionary.txt"
     output_file = input("CSV file name to which you want to save the changes: ")
     column_index = int(input("Please provide the index of the column you want to translate: "))
-    
-    translate_column_by_google(csv_file, output_file, column_index)
+    new_names = get_new_column_names(new_names_file)
+    change_header_by_dictionary(csv_file,output_file, new_names)
+    translate_column_by_google(output_file, output_file, column_index)
